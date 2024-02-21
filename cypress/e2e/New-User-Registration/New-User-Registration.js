@@ -6,19 +6,19 @@ import {
   Then,
 } from "cypress-cucumber-preprocessor/steps";
 
-const randomNumber1 = Math.floor(Math.random() * 10000);
-const newemail1 = `test${randomNumber1}@example.com`;
+// const randomNumber1 = Math.floor(Math.random() * 10000);
+// const newemail1 = `test${randomNumber1}@example.com`;
 
-// let newemail1, newemail2;
-// Before(() => {
-//   const randomNumber1 = Math.floor(Math.random() * 10000);
-//   let randomNumber2 = Math.floor(Math.random() * 10000);
-//   while (randomNumber2 === randomNumber1) {
-//     randomNumber2 = Math.floor(Math.random() * 10000);
-//   }
-//   newemail1 = `test${randomNumber1}@example.com`;
-//   newemail2 = `test${randomNumber2}@example.com`;
-// });
+let newemail1, newemail2;
+Before(() => {
+  const randomNumber1 = Math.floor(Math.random() * 10000);
+  let randomNumber2 = Math.floor(Math.random() * 10000);
+  while (randomNumber2 === randomNumber1) {
+    randomNumber2 = Math.floor(Math.random() * 10000);
+  }
+  newemail1 = `test${randomNumber1}@example.com`;
+  newemail2 = `test${randomNumber2}@example.com`;
+});
 
 //1 | Successful Login with Valid Credentials
 Given("I open the practice Website", () => {
@@ -86,7 +86,7 @@ And('I should see an error message "Email already in use"', () => {
 //3 | Registration with missing mandatory fields
 When("I enter valid registration user name and email-id", () => {
   cy.get('[data-qa="signup-name"]').type("John Doe");
-  cy.get('[data-qa="signup-email"]').type(newemail1);
+  cy.get('[data-qa="signup-email"]').type(newemail2);
   cy.get('[data-qa="signup-button"]').click();
 });
 
