@@ -10,7 +10,7 @@ Given("I am on the login page", () => {
   cy.visit("https://www.automationexercise.com/");
 });
 
-Then("I clicked on Sign /Login", () => {
+Then("I clicked on Signup / Login", () => {
   cy.get(".shop-menu > .nav > :nth-child(4) > a").click();
 });
 
@@ -24,7 +24,7 @@ When("I enter invalid credentials", () => {
   cy.get('[data-qa="login-password"]').type("securePassword123");
 });
 
-When("I click the login button", () => {
+And("I click the login button", () => {
   cy.get('[data-qa="login-button"]').click();
 });
 
